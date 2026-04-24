@@ -1,0 +1,50 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/spec/v2.0.0.html).
+
+## [1.2.0] - 2026-04-24
+
+### Added
+
+- 新增未来天气预报查询功能，支持查询未来 1-3 天天气
+- 新增 `/forecast` 命令及别名 `/天气预报`、`/未来天气`、`/yltq`
+- 支持通过 `/weather <城市> <天数>` 或 `/天气 <城市> <天数>` 直接查询未来天气
+- 支持中文相对日期：`明天`、`后天`、`大后天`
+- LLM 工具 `get_weather` 新增 `days` 参数，支持自然语言请求未来天气（如"北京明天天气如何"）
+- 新增 `_parse_forecast_data` 和 `_format_forecast` 方法解析并格式化天气预报数据
+- 天气预报输出包含：日期、天气描述、最高/最低/平均温度、降雨概率、湿度、风速、日出日落时间
+- 自动选取正午时段（12:00/15:00）作为当日天气代表数据
+
+### Changed
+
+- `/weather` 和 `/天气` 命令支持可选的 `[天数]` 参数，兼容当前天气和未来天气查询
+- 版本号升级至 `1.2.0`
+- 插件描述更新为"支持查询全球城市当前及未来天气"
+- 重构 `_fetch_weather` 为 `_fetch_raw_data` + `_parse_weather_data`，复用 API 请求逻辑
+
+### Fixed
+
+- 修复 JSON 解析失败时 `text` 变量可能未定义的问题
+
+## [1.1.0] - 2024-12-01
+
+### Added
+
+- 初始版本发布
+- 支持查询全球任意城市的当前天气
+- 支持命令方式：`/weather`、`/天气`、`/查天气`、`/tq`
+- 支持 LLM 自然语言查询：`北京天气怎么样`、`查询上海天气`
+- 异步 HTTP 请求，使用 aiohttp
+- 显示温度、湿度、风速、能见度、气压、观测时间等详细信息
+- 无需 API Key，使用 wttr.in 免费天气服务
+
+## [1.0.0] - 2024-11-30
+
+### Added
+
+- 项目初始化
+- 添加 MIT License
+
