@@ -1,7 +1,7 @@
 name: "astrbot_plugin_weather_counhopig"
 author: "counhopig"
-version: "1.2.0"
-desc: "AstrBot 天气查询插件，支持查询全球城市当前天气及未来天气预报"
+version: "2.0.0"
+desc: "AstrBot 天气查询插件，支持 wttr.in（免费）和彩云天气（更精准）"
 display_name: "天气查询"
 repo: "https://github.com/counhopig/astrbot_plugin_weather"
 dependencies:

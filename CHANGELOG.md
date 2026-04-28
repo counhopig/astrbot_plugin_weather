@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-04-28
+
+### Added
+
+- 新增彩云天气 API 支持，提供更精准的天气预报服务
+- 新增 `_conf_schema.json` 配置文件，支持通过 WebUI 配置天气提供商
+- 新增 `/setweather` 命令，支持运行时切换天气提供商（`wttr` 或 `caiyun`）
+- 彩云天气支持空气质量（AQI、PM2.5）和生活指数（紫外线、舒适度）
+- 使用 Nominatim (OpenStreetMap) 进行城市名到经纬度的地理编码
+- 彩云天气 v2.6 API 支持，包含实时天气和天级预报
+- 预报天数上限从 3 天扩展至 7 天（彩云天气支持）
+
+### Changed
+
+- 版本号升级至 `2.0.0`
+- 重构代码架构，分离 wttr.in 和彩云天气的数据获取逻辑
+- 统一数据获取接口，支持自动回退（彩云失败时回退到 wttr.in）
+- 插件描述更新为"支持 wttr.in 和彩云天气"
+- 天气预报天数限制从 3 天扩展至 7 天
+
 ## [1.2.0] - 2026-04-24
 
 ### Added
