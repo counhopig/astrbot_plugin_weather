@@ -427,14 +427,15 @@ class WeatherPlugin(Star):
             # 日期
             date_str = temperatures[i].get("date", "") if i < len(temperatures) else ""
             day_label = "今天" if i == 0 else "明天" if i == 1 else "后天" if i == 2 else f"第{i+1}天"
-            
+
             try:
-                dt = datetime.strptime(date_str, "%Y-%m-%d")
+                # 彩云天气 v2.6 返回 ISO 格式日期如 2026-04-29T00:00+08:00
+                dt = datetime.fromisoformat(date_str)
                 weekday = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"][dt.weekday()]
                 date_str = f"{dt.month}/{dt.day} {weekday}"
             except Exception:
                 pass
-            
+
             # 温度
             temp = temperatures[i] if i < len(temperatures) else {}
             max_temp = temp.get("max", "--")
