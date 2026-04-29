@@ -452,7 +452,12 @@ class WeatherPlugin(Star):
                 precip = precipitations[i]
                 prob = precip.get("probability", 0)
                 if prob and prob > 0:
-                    rain_info = f" 🌧 降雨概率: {round(prob * 100)}%"
+                    # 兼容 API 返回小数(0.7)或整数(70)两种格式
+                    if isinstance(prob, (int, float)) and prob <= 1:
+                        prob = round(prob * 100)
+                    else:
+                        prob = round(prob)
+                    rain_info = f" 🌧 降雨概率: {prob}%"
             
             # 风
             wind_info = ""
