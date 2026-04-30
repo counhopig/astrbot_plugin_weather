@@ -1,14 +1,12 @@
-# Changelog
+# 更新日志
 
-All notable changes to this project will be documented in this file.
+本项目所有值得注意的更改都将记录在此文件中。
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/spec/v2.0.0.html).
+格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)，本项目遵循 [语义化版本规范](https://semver.org/spec/v2.0.0.html)。
 
 ## [2.0.0] - 2026-04-28
 
-### Added
-
+### 新增
 - 新增彩云天气 API 支持，提供更精准的天气预报服务
 - 新增 `_conf_schema.json` 配置文件，支持通过 WebUI 配置天气提供商
 - 新增 `/setweather` 命令，支持运行时切换天气提供商（`wttr` 或 `caiyun`）
@@ -17,8 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 - 彩云天气 v2.6 API 支持，包含实时天气和天级预报
 - 预报天数上限从 3 天扩展至 7 天（彩云天气支持）
 
-### Changed
-
+### 变更
 - 版本号升级至 `2.0.0`
 - 重构代码架构，分离 wttr.in 和彩云天气的数据获取逻辑
 - 统一数据获取接口，支持自动回退（彩云失败时回退到 wttr.in）
@@ -27,8 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 
 ## [1.2.0] - 2026-04-24
 
-### Added
-
+### 新增
 - 新增未来天气预报查询功能，支持查询未来 1-3 天天气
 - 新增 `/forecast` 命令及别名 `/天气预报`、`/未来天气`、`/yltq`
 - 支持通过 `/weather <城市> <天数>` 或 `/天气 <城市> <天数>` 直接查询未来天气
@@ -38,21 +34,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 - 天气预报输出包含：日期、天气描述、最高/最低/平均温度、降雨概率、湿度、风速、日出日落时间
 - 自动选取正午时段（12:00/15:00）作为当日天气代表数据
 
-### Changed
-
+### 变更
 - `/weather` 和 `/天气` 命令支持可选的 `[天数]` 参数，兼容当前天气和未来天气查询
 - 版本号升级至 `1.2.0`
 - 插件描述更新为"支持查询全球城市当前及未来天气"
 - 重构 `_fetch_weather` 为 `_fetch_raw_data` + `_parse_weather_data`，复用 API 请求逻辑
 
-### Fixed
-
+### 修复
 - 修复 JSON 解析失败时 `text` 变量可能未定义的问题
 
 ## [1.1.0] - 2024-12-01
 
-### Added
-
+### 新增
 - 初始版本发布
 - 支持查询全球任意城市的当前天气
 - 支持命令方式：`/weather`、`/天气`、`/查天气`、`/tq`
@@ -63,8 +56,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 
 ## [1.0.0] - 2024-11-30
 
-### Added
-
+### 新增
 - 项目初始化
 - 添加 MIT License
-
